@@ -28,26 +28,19 @@ public class SoapClient {
         clientNameElement.addTextNode(clientName);
 
         soapMessage.saveChanges();
-        
-        // Send the request and get the response
+
         SOAPConnectionFactory soapConnectionFactory = SOAPConnectionFactory.newInstance();
         SOAPConnection soapConnection = soapConnectionFactory.createConnection();
 
         SOAPMessage response = soapConnection.call(soapMessage, soapEndpoint);
 
-        // Extract response
         SOAPBody responseBody = response.getSOAPBody();
-
-        // Extract the root element (helloSoapResponse)
         SOAPElement helloSoapResponse = (SOAPElement) responseBody.getChildElements().next();
 
-        // Extract the nested element (response)
         SOAPElement responseElement = (SOAPElement) helloSoapResponse.getChildElements().next();
 
-        // Get the text content of the response element
         String responseText = responseElement.getValue();
 
-        // Print the extracted value
         System.out.println("Extracted Response: " + responseText);
 
         soapConnection.close();
