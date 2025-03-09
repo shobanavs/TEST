@@ -6,3 +6,12 @@
                since it is a basic application using  SOAPConnection, SOAPBody. 
 4. There is a better approach is using WSDL and generating resources and calling the service based on the WSDL.
 
+ScreenShots of the result:
+
+![img.png](img.png)
+
+The Above Image where directly accessing the SOAP service through postman.
+
+![img_1.png](img_1.png)
+
+The Above Image where the SOAP service is contacted through GRPC.
